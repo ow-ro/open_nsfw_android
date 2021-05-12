@@ -59,47 +59,6 @@ def lPassword = properties.getProperty("password")
 group="io.github.devzwy"
 version="$libVersion"
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: lUsername, password: lPassword)
-            }
-
-
-            pom.project {
-                name 'nsfw'
-                packaging 'jar'
-                description 'android端离线鉴黄库'
-                url 'https://github.com/devzwy/open_nsfw_android'
-
-                scm {
-                    connection 'scm:git:https://github.com/devzwy/open_nsfw_android.git'
-                    developerConnection 'scm:git:https://github.com/devzwy/open_nsfw_android.git'
-                    url 'https://github.com/devzwy/open_nsfw_android'
-                }
-
-                licenses {
-                    license {
-                        name 'The Apache License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'nsfw'
-                        name 'dev_zwy'
-                        email 'dev_zwy@aliyun.com'
-                    }
-                }
-            }
-        }
-    }
-}
-
 signing {
     sign configurations.archives
 }
