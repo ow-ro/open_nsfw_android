@@ -4,10 +4,10 @@ import java.lang.Exception
 import java.nio.ByteBuffer
 
 /**
- * [nsfwScore]不适宜度
- * [sfwScore]适宜度
- * [TimeConsumingToLoadData]装载数据耗时
- * [TimeConsumingToScanData]扫描数据耗时
+ * [nsfwScore]
+ * [sfwScore]
+ * [TimeConsumingToLoadData]
+ * [TimeConsumingToScanData]
  */
 data class NSFWScoreBean(
     val nsfwScore: Float,
