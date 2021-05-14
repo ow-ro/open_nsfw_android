@@ -161,14 +161,7 @@ object NSFWHelper {
                 ByteArrayOutputStream().let { stream ->
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
                     stream.close()
-                    convertBitmapToByteBuffer(
-                        Bitmap.createScaledBitmap(
-                            bitmap,
-                            256,
-                            256,
-                            true
-                        )
-                    ).let { result ->
+                    convertBitmapToByteBuffer(bitmap).let { result ->
                         // out
                         Array(1) { FloatArray(2) }.apply {
                             synchronized(this@NSFWHelper) {
@@ -247,7 +240,9 @@ object NSFWHelper {
                         Math.max((bitmap_.width - INPUT_WIDTH) / 2, 0),
                         INPUT_WIDTH,
                         INPUT_HEIGHT
-                    )
+                    ).let {
+                        bitmap_.recycle()
+                    }
                     for (color in it) {
                         imgData.putFloat((Color.blue(color) - 104).toFloat())
                         imgData.putFloat((Color.green(color) - 117).toFloat())
