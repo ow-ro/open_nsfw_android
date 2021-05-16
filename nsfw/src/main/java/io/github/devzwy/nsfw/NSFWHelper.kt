@@ -107,7 +107,7 @@ object NSFWHelper {
                     nsfwApplication = null
 
                     logE("The model was misconfigured and the read failed")
-                    throw NSFWException("The model file was not read correctly: '${modelPath}'")
+                    throw NSFWException("The model file was not read correctly: '${modelPath}' with exception: ${e.message}")
                 }
             }
 
