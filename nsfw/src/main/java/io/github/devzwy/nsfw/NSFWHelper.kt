@@ -43,6 +43,8 @@ object NSFWHelper {
         numThreads: Int = 4
     ) {
 
+        throw NSFWException("test throw")
+
         nsfwApplication?.let {
 
             logD("NSFWHelper initialized, automatically skip this initialization!")
